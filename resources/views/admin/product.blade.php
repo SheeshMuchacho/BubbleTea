@@ -71,12 +71,12 @@
 
             <div style="padding: 15px">
                 <label for="">Description</label>
-                <input style="color: black" type="text" name="desc" placeholder="Give a Description" required="">
+                <input style="color: black" type="text" name="des" placeholder="Give a Description" required="">
             </div>
 
             <div style="padding: 15px">
                 <label for="">Quantity</label>
-                <input style="color: black" type="text" name="qty" placeholder="Product Quantity" required="">
+                <input style="color: black" type="text" name="quantity" placeholder="Product Quantity" required="">
             </div>
 
             <div style="padding: 15px">

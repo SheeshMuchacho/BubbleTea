@@ -12,26 +12,48 @@
           <div class="section-heading">
             <h2>Latest Products</h2>
             <a href="">view all products <i class="fa fa-angle-right"></i></a>
+
+            <form action="{{url('search')}}" method="get" class="form-inline" style="float: right; padding: 35px:0;">
+
+              @csrf
+
+              <input class="form-control" type="search" name="search" placeholder="search">
+              <input type="submit" value="Search" class="btn btn-success">
+
+            </form>
+
           </div>
         </div>
 
-        {{-- @foreach($data as $product)
+
+        @foreach($data as $Product)
 
         <div class="col-md-4">
           <div class="product-item">
-            <a href="#"><img src="/productimage/{{$product->image}}" alt=""></a>
+            <a href="#"><img src="/productimage/{{$Product->image}}" alt=""></a>
             <div class="down-content">
-              <a href="#"><h4>{{product->title}}</h4></a>
-              <h6>{{product->price}}</h6>
-              <p>{{product->description}}</p>
+              <a href="#"><h4>{{$Product->title}}</h4></a>
+              <h6>LKR {{$Product->price}}</h6>
+              <p>{{$Product->description}}</p>
+
+              <a class="btn btn-primary" style="font-size: 13px; background-color: rgb(226, 59, 59); border-color: rgb(228, 5, 5);" href="#">Add to Cart</a>
+
             </div>
           </div>
         </div>
 
-        @endforeach --}}
+        @endforeach
+
+        @if(method_exists($data, 'links'))
+        <div class="d-flex justify-content-center">
+
+          {!! $data->links() !!}
+
+        </div>
+        @endif
 
 
-        <div class="col-md-4">
+        {{-- <div class="col-md-4">
           <div class="product-item">
             <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
             <div class="down-content">
@@ -127,7 +149,7 @@
             <div class="down-content">
               <a href="#"><h4>Butterfly Pea</h4></a>
               <h6>LKR 1,700</h6>
-              <p>Butterfly pea flower tea, water, brown sugar, tapioca balls, half & half, ice</p>
+              <p>Butterfly pea flower tea, water, brown sugar, tapioca balls, half & half, ice.</p>
               <ul class="stars">
                 <li><i class="fa fa-star"></i></li>
                 <li><i class="fa fa-star"></i></li>
@@ -138,7 +160,9 @@
               <span>Reviews (32)</span>
             </div>
           </div>
-        </div>
+        </div> --}}
+
+
       </div>
     </div>
   </div>

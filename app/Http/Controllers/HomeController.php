@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 
-use App\Models\product;
+use App\Models\Product;
 
 
 
@@ -21,7 +21,7 @@ class HomeController extends Controller
             return view('admin.home');
         }
         else{
-            $data = product::all();
+            $data = Product::paginate(6);
             return view('user.home',compact('data'));
         }
     }
@@ -33,8 +33,22 @@ class HomeController extends Controller
         }
 
         else{
-            $data = product::all();
-            return view('user.home',compact('data'));
+            $data = Product::paginate(6);
+            return view('user.home', compact('data'));
         }
+    }
+    
+    public function search(Request $request)
+    {
+        $search=$request->search;
+
+        if($search=='')
+        {
+            $data = Product::paginate(6);
+            return view('user.home', compact('data'));
+        }
+
+        $data=product::where('title', 'Like', '%'.$search.'%')->get();
+        return view('user.home', compact('data'));
     }
 }
