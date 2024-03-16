@@ -2,7 +2,14 @@
 <html lang="en">
   <head>
 
-@include('admin.css')
+    @include('admin.css')
+
+      <style>
+          .prdctimg {
+              height: auto;
+              width: 60px;
+          }
+      </style>
 
   </head>
   <body>
@@ -13,49 +20,51 @@
      @include('admin.navbar')
         <!-- partial -->
 
-        <div style="padding-bottom: 40px; padding-top:90px;" class="container-fluid page-body-wrapper">
-            <div class="container" align="center">
+        <div class="main-panel">
+            <div style="padding-top: 20px" class="container">
 
                 @if(session()->has('message'))
-            
+
                 <div class="alert alert-success">
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;
-                      
+
                     </span>
                   </button>
-                  
+
                   {{session()->get('message')}}
                 </div>
-      
+
                 @endif
 
-                <table>
+                <div style="padding: 30px 0;">
+                    <h1 class="title" style="font-size: 25px">Show Added Products</h1>
+                </div>
 
-                    <tr style="background-color: grey">
-                        <td style="padding: 20px">Title</td>
-                        <td style="padding: 20px">Description</td>
-                        <td style="padding: 20px">Quantity</td>
-                        <td style="padding: 20px">Price</td>
-                        <td style="padding: 20px">Image</td>
-                        <td style="padding: 20px">Update</td>
-                        <td style="padding: 20px">Delete</td>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
 
                     @foreach($data as $product)
 
-                    <tr style="background-color: black;">
-                        <td align="center">{{$product->title}}</td>
+                    <tr>
+                        <td>{{$product->title}}</td>
                         <td>{{$product->description}}</td>
-                        <td align="center">{{$product->quantity}}</td>
-                        <td align="center">{{$product->price}}</td>
-                        <td> <img height="200" width="200" src="/productimage/{{$product->image}}"> </td>
-                        <td align="center"><a class="btn btn-primary" href="{{url('updateview', $product->id)}}">Update</a></td>
-                        <td align="center"><a class="btn btn-danger" href="{{url('deleteproduct', $product->id)}}">Delete</a></td>
+                        <td>{{$product->quantity}}</td>
+                        <td>{{$product->price}}</td>
+                        <td> <img class="prdctimg" src="/productimage/{{$product->image}}" > </td>
+                        <td><a class="btn btn-inverse-primary" href="{{url('updateview', $product->id)}}">Update</a></td>
+                        <td><a class="btn btn-inverse-danger" href="{{url('deleteproduct', $product->id)}}">Delete</a></td>
                     </tr>
 
                     @endforeach
-
                 </table>
 
             </div>

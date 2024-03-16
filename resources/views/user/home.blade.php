@@ -37,7 +37,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
@@ -54,7 +54,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="index.html">Home
                   <span class="sr-only">(current)</span>
                 </a>
-              </li> 
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="">Our Products</a>
               </li>
@@ -124,7 +124,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-6">
             <div class="left-content">
               <h4>Looking for a refreshing drink?</h4>
-              <p>Bubble tea, also known as boba tea, is a popular and refreshing beverage that originated in Taiwan in the 1980s. This unique drink has gained widespread popularity 
+              <p>Bubble tea, also known as boba tea, is a popular and refreshing beverage that originated in Taiwan in the 1980s. This unique drink has gained widespread popularity
                 globally, offering a delightful combination of tea, milk, or fruit flavors, and chewy tapioca pearls known as "boba."</p>
               <ul class="featured-list">
                 <li><a href="#">Tea Base: Black, green, fruit, or milk teas</a></li>
@@ -166,14 +166,12 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
 
-    
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="inner-content">
               <p>Copyright &copy; 2023 Bubble Me Bubble Tea Co., Ltd.
-            
             {{-- - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p> --}}
             </div>
           </div>
@@ -195,7 +193,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <script src="assets/js/accordions.js"></script>
 
 
-    <script language = "text/Javascript"> 
+    <script language = "text/Javascript">
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the
       if(! cleared[t.id]){                      // function makes it static and global

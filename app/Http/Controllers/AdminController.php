@@ -31,14 +31,13 @@ class AdminController extends Controller
         $data->quantity=$request->quantity;
 
         $data->save();
-        
         return redirect()->back()->with('message', 'Product Added Successfully');
     }
 
     public function showproduct()
     {
         $data=product::all();
-        return view('admin.showproduct', compact('data'));   
+        return view('admin.showproduct', compact('data'));
     }
 
     public function deleteproduct($id)
@@ -76,7 +75,6 @@ class AdminController extends Controller
         $data->quantity=$request->quantity;
 
         $data->save();
-        
         return redirect()->back()->with('message', 'Product Updated Successfully');
     }
 

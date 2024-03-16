@@ -13,12 +13,14 @@
             <h2>Latest Products</h2>
             <a href="">view all products <i class="fa fa-angle-right"></i></a>
 
-            <form action="{{url('search')}}" method="get" class="form-inline" style="float: right; padding: 35px:0;">
+            <form action="{{url('search')}}" method="get" class="form-inline" style="padding: 20px 0;">
 
               @csrf
 
-              <input class="form-control" type="search" name="search" placeholder="search">
-              <input type="submit" value="Search" class="btn btn-success">
+              <input class="form-control" type="search" name="search" placeholder="Search products"
+                     style="width: 30%; font-size: 14px;">
+              <input type="submit" value="Search" class="btn btn-success"
+                     style="font-size: 11px; padding: 10px 15px; margin: 0 10px; background-color: #0a0a0a">
 
             </form>
 
