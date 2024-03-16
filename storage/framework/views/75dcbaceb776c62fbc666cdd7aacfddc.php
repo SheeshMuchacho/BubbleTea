@@ -21,7 +21,7 @@
         <!-- partial -->
 
         <div class="main-panel">
-            <div style="padding-top: 20px" class="container">
+            <div style="padding: 20px 50px 20px 50px">
 
                 <?php if(session()->has('message')): ?>
 
@@ -44,23 +44,23 @@
 
                 <table class="table table-bordered">
                     <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th style="font-size: 18px">Title</th>
+                        <th style="font-size: 18px">Description</th>
+                        <th style="font-size: 18px">Quantity</th>
+                        <th style="font-size: 18px">Price</th>
+                        <th style="font-size: 18px">Image</th>
+                        <th style="font-size: 18px">Update</th>
+                        <th style="font-size: 18px">Delete</th>
                     </tr>
 
                     <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                     <tr>
-                        <td><?php echo e($product->title); ?></td>
-                        <td><?php echo e($product->description); ?></td>
-                        <td><?php echo e($product->quantity); ?></td>
-                        <td><?php echo e($product->price); ?></td>
-                        <td> <img class="prdctimg" src="/productimage/<?php echo e($product->image); ?>" > </td>
+                        <td style="font-size: 14px"><?php echo e($product->title); ?></td>
+                        <td style="font-size: 14px"><?php echo e($product->description); ?></td>
+                        <td style="font-size: 14px"><?php echo e($product->quantity); ?></td>
+                        <td style="font-size: 14px"><?php echo e($product->price); ?></td>
+                        <td> <img class="prdctimg" src="/productimage/<?php echo e($product->image); ?>" style="height: 60px; width: 60px"> </td>
                         <td><a class="btn btn-inverse-primary" href="<?php echo e(url('updateview', $product->id)); ?>">Update</a></td>
                         <td><a class="btn btn-inverse-danger" href="<?php echo e(url('deleteproduct', $product->id)); ?>">Delete</a></td>
                     </tr>
