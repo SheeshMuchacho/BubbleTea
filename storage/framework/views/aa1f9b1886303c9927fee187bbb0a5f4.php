@@ -184,14 +184,12 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
 
-
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="inner-content">
               <p>Copyright &copy; 2023 Bubble Me Bubble Tea Co., Ltd.
-
             
             </div>
           </div>
