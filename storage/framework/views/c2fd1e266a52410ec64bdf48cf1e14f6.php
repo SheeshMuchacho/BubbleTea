@@ -32,7 +32,9 @@
 
         <div class="col-md-4">
           <div class="product-item">
-            <a href="#"><img src="/productimage/<?php echo e($Product->image); ?>" alt=""></a>
+              <div class="hover-effect">
+            <a href="#"><img src="/productimage/<?php echo e($Product->image); ?>"></a>
+              </div>
             <div class="down-content">
               <a href="#"><h4><?php echo e($Product->title); ?></h4></a>
               <h6>LKR <?php echo e($Product->price); ?></h6>

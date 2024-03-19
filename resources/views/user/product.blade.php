@@ -32,7 +32,9 @@
 
         <div class="col-md-4">
           <div class="product-item">
-            <a href="#"><img src="/productimage/{{$Product->image}}" alt=""></a>
+              <div class="hover-effect">
+            <a href="#"><img src="/productimage/{{$Product->image}}"></a>
+              </div>
             <div class="down-content">
               <a href="#"><h4>{{$Product->title}}</h4></a>
               <h6>LKR {{$Product->price}}</h6>

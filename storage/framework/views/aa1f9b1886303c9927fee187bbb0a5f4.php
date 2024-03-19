@@ -184,18 +184,14 @@ https://templatemo.com/tm-546-sixteen-clothing
       </div>
     </div>
 
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <p>Copyright &copy; 2023 Bubble Me Bubble Tea Co., Ltd.
-            
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+
+
+
+
+    <?php echo $__env->make('user.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
+
 
 
     <!-- Bootstrap core JavaScript -->
@@ -209,6 +205,10 @@ https://templatemo.com/tm-546-sixteen-clothing
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
+
+    <!-- Social Icons Script -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
     <script language = "text/Javascript">
