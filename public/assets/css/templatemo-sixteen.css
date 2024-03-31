@@ -1063,12 +1063,72 @@ footer .inner-content p a {
 	}
 }
 
+/* Custom CSS */
+
+
+/* Pagination links */
+
+.pagination-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-links ul li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pagination-links ul li.active a {
+    background-color: rgb(226, 59, 59);
+    color: #141414;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+/* Style for the image */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container img {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.image-container:hover img {
+    transform: scale(1.02); /* Increase the size by 10% */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow */
+}
+
+.custombtn {
+    font-size: 13px;
+    background-color: rgb(226, 59, 59);
+    border-color: rgb(228, 5, 5);
+    color: whitesmoke;
+    padding: 7px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.custombtn:hover {
+    color: whitesmoke;
+    background-color: #45a049;
+}
 
 .social-icon,
 .footer .fa:hover,
 .footer a:hover {
     color: #131313 !important;
 }
+
+.col-md-4 img{
+    height: 200px;
+    width: 349px;
+  }
 
 /* Footer */
 

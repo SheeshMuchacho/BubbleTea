@@ -26,22 +26,32 @@
       <!-- partial -->
       @include('admin.sidebar')
 
+      <div class="container-fluid page-body-wrapper">
+
      @include('admin.navbar')
         <!-- partial -->
 
-        <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+            <div class="content-wrapper">
 
-            <div class="container" align="center">
-            <h1 class="title">Update Products</h1>
+                <div class="page-header">
+                    <h3 class="page-title">Update Product</h3>
+      
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item active">Management</li>
+                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">View Product</li>
+                        <li class="breadcrumb-item">Update Product</li>
+                      </ol>
+                    </nav>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 grid-margin stretch-card">
+                      <div class="card">
+                      <div class="card-body">
     
-            {{-- @if(session()->has('message'))
-    
-            <div class="alert alert-success">
-                <button type="button" class="close" data-bs-dismiss="alert">X</button>
-                {{session()->get('message')}}
-            </div>
-    
-            @endif --}}
     
             @if(session()->has('message'))
                 
@@ -60,41 +70,55 @@
             <form action="{{url('updateproduct', $data->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
     
-                <div style="padding: 15px">
-                    <label for="">Product Title</label>
-                    <input style="color: black" type="text" name="title" value="{{$data->title}}" required="">
+                <div class="form-group">
+                    <label for="">Title</label>
+                    <input class="form-control" name="title" value="{{$data->title}}" required="">
                 </div>
     
-                <div style="padding: 15px">
+                <div class="form-group" style="margin: 40px 0;">
                     <label for="">Price</label>
-                    <input style="color: black" type="number" name="price" value="{{$data->price}}" required="">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white">LKR</span>
+                      </div>
+                      <input class="form-control" name="price" id="price" value="{{$data->price}}" pattern="\d+(\.\d{2})?" title="Please enter a valid price in LKR (e.g., 100.00)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                </div>
                 </div>
     
-                <div style="padding: 15px">
+                <div class="form-group" style="margin: 40px 0;">
                     <label for="">Description</label>
-                    <input style="color: black" type="text" name="des" value="{{$data->description}}" required="">
+                    <textarea name="des" rows="10" class="form-control" required="" style="height: 50px">{{$data->description}}</textarea>
                 </div>
     
-                <div style="padding: 15px">
+                <div class="form-group" style="margin: 40px 0;">
                     <label for="">Quantity</label>
-                    <input style="color: black" type="text" name="quantity" value="{{$data->quantity}}" required="">
+                    <input class="form-control" name="quantity" value="{{$data->quantity}}" required="">
                 </div>
 
-                <div style="padding: 15px">
+                <div class="form-group" style="margin: 40px 0;">
                     <label for="">Current Image</label>
                     <img height="200" width="200" src="/productimage/{{$data->image}}">
                 </div>
     
-                <div style="padding: 15px">
-                    <label>Change Image</label>
-                    <input type="file" name="file">
+                <div class="form-group" style="margin: 40px 0;">
+                    <input class="form-control-file" style="padding: 8px" type="file" name="file">
                 </div>
     
-                <div style="padding: 15px">
-                    <input class="btn btn-success" type="submit">
+                <div class="form-group" style="margin: 40px 0;">
+                    <input class="btn btn-primary me-2" type="submit">
                 </div>
             </form>
     
+
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            </div>
             </div>
 
           <!-- partial -->

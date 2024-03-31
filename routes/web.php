@@ -44,8 +44,12 @@ route::get('/updateview/{id}', [AdminController::class, 'updateview']);
 
 route::post('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
 
+route::get('/admindash', [AdminController::class, 'admindash']);
+
 
 //User
 route::get('/redirect', [HomeController::class, 'redirect']);
 
 route::get('/search', [HomeController::class, 'search']);
+
+route::get('/ourproduct', [HomeController::class, 'ourproduct']);

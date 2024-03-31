@@ -1,5 +1,4 @@
-
-    <!-- partial:partials/_navbar.html -->
+ <!-- partial:partials/_navbar.html -->
     <nav class="navbar p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
         <a class="navbar-brand brand-logo-mini" href={{url('redirect')}}#"><img src="admin/assets/images/logo-mini.svg" alt="logo"></a>
@@ -62,47 +61,7 @@
               <i class="mdi mdi-view-grid"></i>
             </a>
           </li>
-          <li class="nav-item dropdown border-left">
-            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="mdi mdi-email"></i>
-              <span class="count bg-success"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-              <h6 class="p-3 mb-0">Messages</h6>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="admin/assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
-                </div>
-                <div class="preview-item-content">
-                  <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
-                  <p class="text-muted mb-0"> 1 Minutes ago </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="admin/assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
-                </div>
-                <div class="preview-item-content">
-                  <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
-                  <p class="text-muted mb-0"> 15 Minutes ago </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <img src="admin/assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
-                </div>
-                <div class="preview-item-content">
-                  <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
-                  <p class="text-muted mb-0"> 18 Minutes ago </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <p class="p-3 mb-0 text-center">4 new messages</p>
-            </div>
-          </li>
+          
           <li class="nav-item dropdown border-left">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
               <i class="mdi mdi-bell"></i>

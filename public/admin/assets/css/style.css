@@ -8994,8 +8994,8 @@ progress {
   .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
-    color: #212529;
-    background-color: #fff;
+    color: #ffffff;
+    background-color: #212529;
     border-color: #86b7fe;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
@@ -9072,7 +9072,7 @@ progress {
   .jsgrid .jsgrid-table .jsgrid-filter-row select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .select2-container--default .select2-selection--single:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .select2-container--default .select2-selection--single .select2-search__field:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .typeahead:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
   .tt-query:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
   .tt-hint:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
-    background-color: #dde0e3; }
+    background-color: transparent; }
 
 .form-control-plaintext {
   display: block;
@@ -10640,6 +10640,7 @@ textarea.is-invalid.tt-hint {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; }
+  
   .btn-group-vertical > .btn,
   .fc .btn-group-vertical > button,
   .ajax-upload-dragdrop .btn-group-vertical > .ajax-file-upload,
@@ -20814,7 +20815,7 @@ div.tagsinput {
 
 .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
-  width: 90%;
+  width: 100%;
   min-height: calc(100vh - 70px);
   padding-top: 70px;
   display: -webkit-flex;
@@ -20834,5 +20835,3 @@ div.tagsinput {
   flex-grow: 1; }
 
 /*# sourceMappingURL=maps/style.css.map */
-
-
