@@ -1111,12 +1111,12 @@ footer .inner-content p a {
     padding: 7px 12px;
     border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.2s;
 }
 
 .custombtn:hover {
     color: whitesmoke;
-    background-color: #45a049;
+    background-color: #56bd56;
 }
 
 .social-icon,
