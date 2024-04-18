@@ -11,7 +11,7 @@
     <title>HomePage</title>
 
     <!-- Bootstrap core CSS -->
-    
+
     <?php echo $__env->make("user.css", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
   </head>
@@ -61,7 +61,7 @@
     <!-- Banner Ends Here -->
 
 
-    
+
 
 
     
@@ -73,24 +73,24 @@
             <div class="section-heading">
               <h2>Latest Products</h2>
               <a href="">view all products <i class="fa fa-angle-right"></i></a>
-  
+
               
               <form action="<?php echo e(url('search')); ?>" method="get" class="form-inline" style="padding: 20px 0;">
-  
+
                 <?php echo csrf_field(); ?>
                       <input class="form-control" type="search" name="search" placeholder="Search products"
                               style="width: 30%; font-size: 14px;">
                       <input type="submit" value="Search" class="btn btn-success"
                               style="font-size: 11px; padding: 10px 15px; margin: 0 10px; background-color: #0a0a0a">
-  
+
               </form>
-  
+
             </div>
           </div>
-  
-  
+
+
           <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-  
+
           <div class="col-md-4">
             <div class="product-item">
                 <div class="image-container">
@@ -100,15 +100,15 @@
                 <a href="#"><h4><?php echo e($Product->title); ?></h4></a>
                 <h6>LKR <?php echo e($Product->price); ?></h6>
                 <p><?php echo e($Product->description); ?></p>
-  
-                <a class="custombtn" href="#">Add to Cart</a>
-  
+
+                  <a class="custombtn" href="#">Add to Cart</a>
+
               </div>
             </div>
           </div>
-  
+
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-  
+
           <!-- Pagination Links Container -->
           <div class="container">
             <div class="pagination-links">

@@ -11,7 +11,7 @@
     <title>HomePage</title>
 
     <!-- Bootstrap core CSS -->
-    
+
     @include("user.css")
 
   </head>
@@ -61,7 +61,7 @@
     <!-- Banner Ends Here -->
 
 
-    
+
 
 
     {{-- Displaying Products --}}
@@ -73,24 +73,24 @@
             <div class="section-heading">
               <h2>Latest Products</h2>
               <a href="">view all products <i class="fa fa-angle-right"></i></a>
-  
+
               {{-- Search Function --}}
               <form action="{{url('search')}}" method="get" class="form-inline" style="padding: 20px 0;">
-  
+
                 @csrf
                       <input class="form-control" type="search" name="search" placeholder="Search products"
                               style="width: 30%; font-size: 14px;">
                       <input type="submit" value="Search" class="btn btn-success"
                               style="font-size: 11px; padding: 10px 15px; margin: 0 10px; background-color: #0a0a0a">
-  
+
               </form>
-  
+
             </div>
           </div>
-  
-  
+
+
           @foreach($data as $Product)
-  
+
           <div class="col-md-4">
             <div class="product-item">
                 <div class="image-container">
@@ -100,15 +100,15 @@
                 <a href="#"><h4>{{$Product->title}}</h4></a>
                 <h6>LKR {{$Product->price}}</h6>
                 <p>{{$Product->description}}</p>
-  
-                <a class="custombtn" href="#">Add to Cart</a>
-  
+
+                  <a class="custombtn" href="#">Add to Cart</a>
+
               </div>
             </div>
           </div>
-  
+
           @endforeach
-  
+
           <!-- Pagination Links Container -->
           <div class="container">
             <div class="pagination-links">

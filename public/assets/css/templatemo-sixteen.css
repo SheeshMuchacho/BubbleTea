@@ -1106,7 +1106,6 @@ footer .inner-content p a {
 .custombtn {
     font-size: 13px;
     background-color: rgb(226, 59, 59);
-    border-color: rgb(228, 5, 5);
     color: whitesmoke;
     padding: 7px 12px;
     border-radius: 3px;
@@ -1116,7 +1115,7 @@ footer .inner-content p a {
 
 .custombtn:hover {
     color: whitesmoke;
-    background-color: #56bd56;
+    background-color: rgb(246, 71, 71);
 }
 
 .social-icon,
