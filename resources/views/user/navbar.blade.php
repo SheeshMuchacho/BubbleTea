@@ -37,10 +37,21 @@
                     @endauth
                @endif
                 </li>
-
-
               </ul>
             </div>
           </div>
         </nav>
+
+        @if(session()->has('message'))
+
+            <div class="alert alert-success">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;
+              </span>
+                </button>
+                {{session()->get('message')}}
+            </div>
+
+        @endif
+
       </header>
