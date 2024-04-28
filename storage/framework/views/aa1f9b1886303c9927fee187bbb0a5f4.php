@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+      <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 
     <title>HomePage</title>
 
@@ -101,7 +102,17 @@
                 <h6>LKR <?php echo e($Product->price); ?></h6>
                 <p><?php echo e($Product->description); ?></p>
 
-                  <a class="custombtn" href="#">Add to Cart</a>
+
+                  <form action="<?php echo e(url('addcart', ['id' => $Product->id])); ?>" method="POST">
+                      <?php echo csrf_field(); ?>
+
+                      <label>
+                          <input class="form-input w-16 px-3 py-2 border rounded-md mr-2" type="number" value="1" min="1" name="quantity">
+                      </label>
+
+                      <input class="custombtn bg-red-500 hover:bg-red-600 text-whitesmoke hover:text-whitesmoke px-3 py-2 rounded-md cursor-pointer transition duration-200" type="submit" value="Add to Cart">
+                      </form>
+
 
               </div>
             </div>

@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+      @vite('resources/css/app.css')
 
     <title>HomePage</title>
 
     <!-- Bootstrap core CSS -->
-    
+
     @include("user.css")
 
   </head>
@@ -48,7 +49,7 @@
       </div>
     </div>
 
-    
+
     <div class="products">
       <div class="container">
         <div class="row">
@@ -64,57 +65,66 @@
               {{-- Search Fuction --}}
               <div class="col-md-12">
                 <form action="{{url('ourproduct')}}" method="get" class="form-inline" style="padding: 20px 0;">
-    
+
                   @csrf
                         <input class="form-control" type="search" name="search" placeholder="Search products"
                                 style="width: 30%; font-size: 14px;">
                         <input type="submit" value="Search" class="btn btn-success"
                                 style="font-size: 11px; padding: 10px 15px; margin: 0 10px; background-color: #0a0a0a">
-    
+
                 </form>
             </div>
 
 
             </div>
           </div>
-        
-        
-                @foreach($data as $Product)
-        
+
+
+            @foreach($data as $Product)
+
                 <div class="col-md-4">
-                  <div class="product-item">
-                      <div class="image-container">
-                    <a href="#"><img src="/productimage/{{$Product->image}}"></a>
-                      </div>
-                    <div class="down-content">
-                      <a href="#"><h4>{{$Product->title}}</h4></a>
-                      <h6>LKR {{$Product->price}}</h6>
-                      <p>{{$Product->description}}</p>
-        
-                      <a class="custombtn" href="#">Add to Cart</a>
-        
+                    <div class="product-item">
+                        <div class="image-container">
+                            <a href="#"><img src="/productimage/{{$Product->image}}"></a>
+                        </div>
+                        <div class="down-content">
+                            <a href="#"><h4>{{$Product->title}}</h4></a>
+                            <h6>LKR {{$Product->price}}</h6>
+                            <p>{{$Product->description}}</p>
+
+
+                            <form action="{{ url('addcart', ['id' => $Product->id]) }}" method="POST">
+                                @csrf
+
+                                <label>
+                                    <input class="form-input w-16 px-3 py-2 border rounded-md mr-2" type="number" value="1" min="1" name="quantity">
+                                </label>
+
+                                <input class="custombtn bg-red-500 hover:bg-red-600 text-whitesmoke hover:text-whitesmoke px-3 py-2 rounded-md cursor-pointer transition duration-200" type="submit" value="Add to Cart">
+                            </form>
+
+
+                        </div>
                     </div>
-                  </div>
                 </div>
-        
-                @endforeach
-        
+
+            @endforeach
+
                 @if(method_exists($data, 'links'))
                 <div class="d-flex justify-content-center">
-        
+
                   {!! $data->links() !!}
-        
+
                 </div>
                 @endif
-        
-        
+
             </div>
         </div>
     </div>
 
 
 
-    
+
 
     @include("user.footer")
 
@@ -126,7 +136,7 @@
 
 
 
-    
+
 
   </body>
 

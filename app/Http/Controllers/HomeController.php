@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -85,7 +87,36 @@ class HomeController extends Controller
             $data = Product::paginate(9);
         }
 
+        $data = Product::paginate(9);
         return view('user.ourproduct', compact('data'));
     }
-    
+
+    public function addcart(Request $request, $id)
+    {
+        if (Auth::id())
+        {
+            $user=auth()->user();
+
+            $product=Product::find($id);
+
+            $cart=new cart;
+
+            $cart->name=$user->name;
+            $cart->phone=$user->phone;
+            $cart->address=$user->address;
+
+            $cart->product_title=$product->title;
+            $cart->price=$product->price;
+            $cart->quantity=$request->quantity;
+
+            $cart->save();
+
+            return redirect()->back();
+        }
+        else
+        {
+            return redirect('login');
+        }
+    }
+
 }
