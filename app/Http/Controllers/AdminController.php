@@ -19,28 +19,18 @@ class AdminController extends Controller
     {
         $data=new Product;
 
-        // $image=$request->file;
-        // $imagename=time().'.'.$image->getClientOriginalExtension();
-        // $request->file->move('productimage', $imagename);
-        // $data->image=$imagename;
-
-
-        // Check if a file was uploaded
     if ($request->hasFile('file')) {
 
         $image = $request->file('file');
 
-        // Check if the file is valid
         if ($image->isValid()) {
             $imagename = time().'.'.$image->getClientOriginalExtension();
             $image->move('productimage', $imagename);
             $data->image = $imagename;
         } else {
-            // Display an error message if the file is not valid
             return redirect()->back()->with('error', 'The uploaded file is not valid.');
         }
     } else {
-        // Display an error message if no file was uploaded
         return redirect()->back()->with('error', 'No file was uploaded.');
     }
 

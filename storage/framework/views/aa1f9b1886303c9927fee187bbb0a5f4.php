@@ -9,12 +9,10 @@
     <meta name="author" content="">
       <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 
-      <!-- Site Icons -->
-      <link rel="shortcut icon" href="auth/images/logo1.jpg" type="image/x-icon" />
 
-    <title>HomePage</title>
+      <title>HomePage</title>
 
-    <!-- Bootstrap core CSS -->
+
 
     <?php echo $__env->make("user.css", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
@@ -76,7 +74,7 @@
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Latest Products</h2>
-              <a href="">view all products <i class="fa fa-angle-right"></i></a>
+              <a href="<?php echo e(url('ourproduct')); ?>">view all products <i class="fa fa-angle-right"></i></a>
 
               
               <form action="<?php echo e(url('search')); ?>" method="get" class="form-inline" style="padding: 20px 0;">

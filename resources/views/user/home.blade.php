@@ -9,12 +9,10 @@
     <meta name="author" content="">
       @vite('resources/css/app.css')
 
-      <!-- Site Icons -->
-      <link rel="shortcut icon" href="auth/images/logo1.jpg" type="image/x-icon" />
 
-    <title>HomePage</title>
+      <title>HomePage</title>
 
-    <!-- Bootstrap core CSS -->
+
 
     @include("user.css")
 
@@ -76,7 +74,7 @@
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Latest Products</h2>
-              <a href="">view all products <i class="fa fa-angle-right"></i></a>
+              <a href="{{ url('ourproduct') }}">view all products <i class="fa fa-angle-right"></i></a>
 
               {{-- Search Function --}}
               <form action="{{url('search')}}" method="get" class="form-inline" style="padding: 20px 0;">

@@ -25,43 +25,25 @@ class HomeController extends Controller
             if ($usertype == '1') {
                 return view('admin.admindash');
             }
-        }
 
-        // If the user is not an admin or not authenticated,
-        // show the user.home view with product data
+            $user = auth()->user();
+            $carts = Cart::where('phone', $user->phone)->get(); // Fetch all carts for the user
+            $count = $carts->count(); // Calculate the count of carts for the user
+        }
+        else {
+            // User is not authenticated, set default values for carts and count
+            $carts = [];
+            $count = 0;
+        }
         $data = Product::paginate(3);
-        return view('user.home', compact('data'));
+
+        return view('user.home', compact('data', 'carts', 'count'));
     }
 
     public function index()
     {
-        // Redirect to the redirect() method
         return $this->redirect();
     }
-
-    // public function redirect(){
-    //     $usertype=Auth::user()->usertype;
-
-    //     if($usertype=='1'){
-    //         return view('admin.admindash');
-    //     }
-    //     else{
-    //         $data = Product::paginate(6);
-    //         return view('user.home',compact('data'));
-    //     }
-    // }
-
-    // public function index(){
-
-    //     if(Auth::id()){
-    //         return redirect('redirect');
-    //     }
-
-    //     else{
-    //         $data = Product::paginate(6);
-    //         return view('user.home', compact('data'));
-    //     }
-    // }
 
     public function search(Request $request)
     {
@@ -110,8 +92,7 @@ class HomeController extends Controller
             $cart->quantity=$request->quantity;
 
             $cart->save();
-
-            return redirect()->back()->with('message', 'Product Added Successfully');
+            return redirect()->back()->with('message', 'Product Added to Cart Successfully');
         }
         else
         {

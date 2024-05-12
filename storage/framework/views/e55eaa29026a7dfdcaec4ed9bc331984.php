@@ -47,7 +47,7 @@ $__split = function ($name, $params = []) {
 };
 [$__name, $__params] = $__split('navigation-menu');
 
-$__html = app('livewire')->mount($__name, $__params, 'Ag0vGaB', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'livmTP7', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
@@ -61,7 +61,7 @@ if (isset($__slots)) unset($__slots);
             <!-- Page Heading -->
             <?php if(isset($header)): ?>
                 <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
                         <?php echo e($header); ?>
 
                     </div>

@@ -8,13 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
       @vite('resources/css/app.css')
-
-      <!-- Site Icons -->
-      <link rel="shortcut icon" href="auth/images/logo1.jpg" type="image/x-icon" />
+      
 
     <title>HomePage</title>
-
-    <!-- Bootstrap core CSS -->
 
     @include("user.css")
 
