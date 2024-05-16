@@ -55,3 +55,6 @@ route::get('/search', [HomeController::class, 'search']);
 route::get('/ourproduct', [HomeController::class, 'ourproduct']);
 
 route::post('/addcart/{id}', [HomeController::class, 'addcart']);
+
+route::get('/delete/{id}', [HomeController::class, 'deletecart']);
+

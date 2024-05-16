@@ -12,5 +12,5 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<input <?php echo e($disabled ? 'disabled' : ''); ?> <?php echo $attributes->merge(['class' => 'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm']); ?>>
+<input <?php echo e($disabled ? 'disabled' : ''); ?> <?php echo $attributes->merge(['class' => 'border-red-300 focus:border-indigo-500 focus:ring-red-500 rounded-md shadow-sm']); ?>>
 <?php /**PATH C:\xampp\htdocs\cb009892\resources\views/components/input.blade.php ENDPATH**/ ?>

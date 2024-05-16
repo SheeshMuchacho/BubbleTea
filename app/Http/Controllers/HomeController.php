@@ -27,11 +27,10 @@ class HomeController extends Controller
             }
 
             $user = auth()->user();
-            $carts = Cart::where('phone', $user->phone)->get(); // Fetch all carts for the user
-            $count = $carts->count(); // Calculate the count of carts for the user
+            $carts = Cart::where('phone', $user->phone)->get();
+            $count = $carts->count();
         }
         else {
-            // User is not authenticated, set default values for carts and count
             $carts = [];
             $count = 0;
         }
@@ -69,8 +68,16 @@ class HomeController extends Controller
             $data = Product::paginate(9);
         }
 
-        $data = Product::paginate(9);
-        return view('user.ourproduct', compact('data'));
+        if (Auth::check()) {
+            $user = auth()->user();
+            $carts = Cart::where('phone', $user->phone)->get();
+            $count = $carts->count();
+        } else {
+            $carts = [];
+            $count = 0;
+        }
+
+        return view('user.ourproduct', compact('data', 'carts', 'count'));
     }
 
     public function addcart(Request $request, $id)
@@ -98,6 +105,15 @@ class HomeController extends Controller
         {
             return redirect('login');
         }
+    }
+
+    public function deletecart($id)
+    {
+        $data=cart::find($id);
+
+        $data->delete();
+
+        return redirect()->back();
     }
 
 }

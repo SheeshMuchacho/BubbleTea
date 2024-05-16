@@ -2,6 +2,10 @@
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
+
+            <h2 class="mt-4 font-semibold text-xl text-gray-800 leading-tight text-center">
+                {{ __('Registration Page') }}
+            </h2>
         </x-slot>
 
         <x-validation-errors class="mb-4" />

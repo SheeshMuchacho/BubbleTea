@@ -39,6 +39,11 @@
 <?php $component = $__componentOriginal1a590bee94ab2d9c08b342367154fca0; ?>
 <?php unset($__componentOriginal1a590bee94ab2d9c08b342367154fca0); ?>
 <?php endif; ?>
+
+            <h2 class="mt-4 font-semibold text-xl text-gray-800 leading-tight text-center">
+                <?php echo e(__('Login Page')); ?>
+
+            </h2>
          <?php $__env->endSlot(); ?>
 
         <?php if (isset($component)) { $__componentOriginalb24df6adf99a77ed35057e476f61e153 = $component; } ?>

@@ -26,19 +26,38 @@
 
                     @if (Route::has('login'))
                         @auth
+
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" id="cartDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-regular fa-cart-shopping" style="color: #fb5b5b;"></i> Cart [{{ $count }}]
+                                        <i class="fa fa-regular fa-cart-shopping" style="color: #fb5b5b;"></i> Cart ({{ $count }})
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="cartDropdown">
                                             @foreach($carts as $cart)
-                                            <li>{{ $cart->product_title }} - Quantity: {{ $cart->quantity }} Price: {{ $cart->price }}</li>
-                                            @endforeach
+                                            <li class="p-2 hover:bg-gray-100">
+                                                <div class="flex flex-col items-center">
+                                                    <div class="flex justify-between w-full text-base font-medium text-gray-900">
+                                                        <h3 class="flex-1">
+                                                            <p class="truncate">{{ $cart->product_title }}</p>
+                                                        </h3>
+                                                        <p class="ml-4">{{ $cart->quantity }}</p>
+                                                    </div>
+                                                    <div class="flex justify-between w-full text-sm mt-2">
+                                                        <p class="text-gray-500">LKR {{ $cart->price }}</p>
+                                                        <a class="font-medium text-danger cursor-pointer" href="{{ url('delete', $cart->id) }}">
+                                                            Remove
+                                                        </a>
+                                                    </div>
+                                                    <div class="border-t border-gray-200 mt-2 w-full"></div>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </li>
+
                             <x-app-layout></x-app-layout>
+
                         @else
                             <li><a class="nav-link" href="{{ route('login') }}">Log in</a></li>
                             @if (Route::has('register'))
