@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -21,7 +22,7 @@ Route::middleware([
 
 
 
-//Admin
+//Admin Dashboard
 route::get('/product', [AdminController::class, 'product']);
 
 route::post('/uploadproduct', [AdminController::class,'uploadproduct']);
@@ -37,7 +38,26 @@ route::post('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
 route::get('/admindash', [AdminController::class, 'admindash']);
 
 
-//User
+//Admin User Management
+route::get('/admins', [UserController::class, 'admins']);
+
+route::post('/admincreate', [UserController::class, 'admincreate']);
+
+route::get('/admindelete/{id}', [UserController::class, 'admindelete']);
+
+route::get('/adminshow', [UserController::class, 'adminshow']);
+
+route::get('/users', [UserController::class, 'users']);
+
+route::post('/usercreate', [UserController::class, 'usercreate']);
+
+route::get('/userdelete/{id}', [UserController::class, 'userdelete']);
+
+route::get('/usershow', [UserController::class, 'usershow']);
+
+
+
+//User Dashboard
 route::get('/redirect', [HomeController::class, 'redirect']);
 
 route::get('/search', [HomeController::class, 'search']);

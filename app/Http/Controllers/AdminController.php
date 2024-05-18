@@ -6,13 +6,16 @@ use Illuminate\Database\QueryException;
 
 use Illuminate\Http\Request;
 
-use App\Models\Product;;
+use App\Models\Product;
+
+use App\Models\User;
+
 
 class AdminController extends Controller
 {
     public function product()
     {
-        return view('admin.product');
+        return view('admin.product.product');
     }
 
     public function uploadproduct(Request $request)
@@ -51,7 +54,7 @@ class AdminController extends Controller
     public function showproduct()
     {
         $data=product::all();
-        return view('admin.showproduct', compact('data'));
+        return view('admin.product.showproduct', compact('data'));
     }
 
     public function deleteproduct($id)
@@ -64,7 +67,7 @@ class AdminController extends Controller
     public function updateview($id)
     {
         $data=product::find($id);
-        return view('admin.updateview', compact('data'));
+        return view('admin.product.updateview', compact('data'));
     }
 
     public function updateproduct(Request $request, $id)
@@ -95,5 +98,7 @@ class AdminController extends Controller
     public function admindash() {
         return view('admin.admindash');
     }
+
+
 
 }
