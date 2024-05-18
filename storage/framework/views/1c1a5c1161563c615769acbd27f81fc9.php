@@ -24,4 +24,5 @@
 <!-- endinject -->
 <!-- Custom js for this page -->
 <script src="admin/assets/js/dashboard.js"></script>
-<!-- End custom js for this page --><?php /**PATH C:\xampp\htdocs\cb009892\resources\views/admin/script.blade.php ENDPATH**/ ?>
+<!-- End custom js for this page -->
+<?php /**PATH C:\xampp\htdocs\cb009892\resources\views/admin/script.blade.php ENDPATH**/ ?>

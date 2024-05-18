@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
-
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 
 use App\Models\Product;
 
+use App\Models\Order;
+
+use App\Models\Cart;
 
 
 class HomeController extends Controller
@@ -122,6 +125,39 @@ class HomeController extends Controller
         $data->delete();
 
         return redirect()->back();
+    }
+
+    public function confirmorder(Request $request)
+    {
+        $user=auth()->user();
+
+        $name=$user->name;
+        $phone=$user->phone;
+        $address=$user->address;
+
+        foreach ($request->productname as $key=>$productname)
+        {
+            $order = new order;
+
+            //multiple values
+            $order->product_name = $request->productname[$key];
+            $order->price = $request->price[$key];
+            $order->quantity = $request->quantity[$key];
+
+            //single values
+            $order->name = $name;
+            $order->phone = $phone;
+            $order->address = $address;
+            $order->status = 'not delivered';
+
+            $order->save();
+
+        }
+
+        DB::table('carts')->where('phone', $phone)->delete();
+
+        return redirect()->back()->with('message', 'Order Complete');
+
     }
 
 }
