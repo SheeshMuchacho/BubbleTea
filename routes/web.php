@@ -37,6 +37,13 @@ route::post('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
 
 route::get('/admindash', [AdminController::class, 'admindash']);
 
+route::get('/showorder', [AdminController::class, 'showorder']);
+
+route::get('/deleteorder/{id}', [AdminController::class, 'deleteorder']);
+
+route::get('/updatestatus/{id}', [AdminController::class, 'updatestatus']);
+
+
 
 //Admin User Management
 route::get('/admins', [UserController::class, 'admins']);

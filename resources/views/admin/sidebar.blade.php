@@ -41,8 +41,8 @@
               </a>
               <div class="collapse" id="ui-basic2">
                   <ul class="nav flex-column sub-menu">
-                      <li class="nav-item"> <a class="nav-link" href="{{url('adminshow')}}">View</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{url('admins')}}">Create</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="{{url('adminshow')}}">View Admins</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="{{url('admins')}}">Create Admins</a></li>
                   </ul>
               </div>
           </li>
@@ -59,8 +59,8 @@
               </a>
               <div class="collapse" id="ui-basic1">
                   <ul class="nav flex-column sub-menu">
-                      <li class="nav-item"> <a class="nav-link" href="{{url('usershow')}}">View</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{url('users')}}">Create</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="{{url('usershow')}}">View Users</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="{{url('users')}}">Create Users</a></li>
                   </ul>
               </div>
           </li>
@@ -78,10 +78,32 @@
               <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
                       <li class="nav-item"> <a class="nav-link" href="{{url('showproduct')}}">View Products</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="{{url('product')}}">Add Product</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="{{url('product')}}">Add Products</a></li>
                   </ul>
               </div>
           </li>
+
+
+          <!-- Orders -->
+          <li class="nav-item menu-items">
+              <a class="nav-link" href="{{url('showorder')}}">
+            <span class="menu-icon">
+              <i class="mdi mdi-cart"></i>
+            </span>
+                  <span class="menu-title">Orders</span>
+              </a>
+          </li>
+
+
+{{--          <!-- Template -->--}}
+{{--          <li class="nav-item menu-items">--}}
+{{--              <a class="nav-link" href="admin/pages/forms/basic_elements.html">--}}
+{{--            <span class="menu-icon">--}}
+{{--              <i class="mdi mdi-page-first"></i>--}}
+{{--            </span>--}}
+{{--                  <span class="menu-title">Corona</span>--}}
+{{--              </a>--}}
+{{--          </li>--}}
 
       </ul>
     </nav>

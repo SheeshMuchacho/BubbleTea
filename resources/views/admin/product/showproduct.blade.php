@@ -73,7 +73,14 @@
                         <td style="color: white">{{$product->price}}</td>
                         <td class="py-1"> <img class="prdctimg" src="/productimage/{{$product->image}}" style="height: 60px; width: 60px"> </td>
                         <td style="text-align: center"><a class="btn btn-inverse-primary" href="{{url('updateview', $product->id)}}">Update</a></td>
-                        <td style="text-align: center"><a class="btn btn-inverse-danger" href="{{url('deleteproduct', $product->id)}}">Delete</a></td>
+                        <td style="text-align: center">
+                            <a
+                                class="btn btn-inverse-danger"
+                                onclick="return confirm('Are you sure you want to delete product?')"
+                                href="{{url('deleteproduct', $product->id)}}">
+                                Delete
+                            </a>
+                        </td>
                     </tbody>
 
                     @endforeach
@@ -94,7 +101,7 @@
           <script>
             // Get all description cells
             const descriptionCells = document.querySelectorAll('.description-cell');
-        
+
             // Iterate over each description cell
             descriptionCells.forEach(cell => {
                 // Check if the content exceeds the width of the cell

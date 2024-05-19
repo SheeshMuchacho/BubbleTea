@@ -8,14 +8,32 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 
+use App\Models\Order;
+
 use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminController extends Controller
 {
     public function product()
     {
-        return view('admin.product.product');
+        if (Auth::id())
+        {
+            if (Auth::user()->usertype=='1')
+            {
+                return view('admin.product.product');
+            }
+            else
+            {
+                return redirect()->back();
+            }
+        }
+        else
+        {
+            return redirect('login');
+        }
     }
 
     public function uploadproduct(Request $request)
@@ -99,6 +117,26 @@ class AdminController extends Controller
         return view('admin.admindash');
     }
 
+    public function showorder()
+    {
+        $order=order::all();
+        return view('admin.product.showorder', compact('order'));
+    }
 
+    public function deleteorder($id)
+    {
+        $order=order::find($id);
+        $order->delete();
+        return redirect()->back()->with('message', 'Order Deleted Successfully');
+    }
+
+    public function updatestatus($id)
+    {
+        $order=order::find($id);
+        $order->status='delivered';
+        $order->save();
+
+        return redirect()->back();
+    }
 
 }

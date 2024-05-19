@@ -41,8 +41,8 @@
               </a>
               <div class="collapse" id="ui-basic2">
                   <ul class="nav flex-column sub-menu">
-                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('adminshow')); ?>">View</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('admins')); ?>">Create</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('adminshow')); ?>">View Admins</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('admins')); ?>">Create Admins</a></li>
                   </ul>
               </div>
           </li>
@@ -59,8 +59,8 @@
               </a>
               <div class="collapse" id="ui-basic1">
                   <ul class="nav flex-column sub-menu">
-                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('usershow')); ?>">View</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('users')); ?>">Create</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('usershow')); ?>">View Users</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('users')); ?>">Create Users</a></li>
                   </ul>
               </div>
           </li>
@@ -78,10 +78,32 @@
               <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
                       <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('showproduct')); ?>">View Products</a></li>
-                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('product')); ?>">Add Product</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('product')); ?>">Add Products</a></li>
                   </ul>
               </div>
           </li>
+
+
+          <!-- Orders -->
+          <li class="nav-item menu-items">
+              <a class="nav-link" href="<?php echo e(url('showorder')); ?>">
+            <span class="menu-icon">
+              <i class="mdi mdi-cart"></i>
+            </span>
+                  <span class="menu-title">Orders</span>
+              </a>
+          </li>
+
+
+
+
+
+
+
+
+
+
+
 
       </ul>
     </nav>
