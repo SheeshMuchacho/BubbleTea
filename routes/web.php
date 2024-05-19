@@ -46,21 +46,31 @@ route::get('/updatestatus/{id}', [AdminController::class, 'updatestatus']);
 
 
 //Admin User Management
-route::get('/admins', [UserController::class, 'admins']);
+//Admin Accounts
+Route::get('/admins', [UserController::class, 'admins']);
 
-route::post('/admincreate', [UserController::class, 'admincreate']);
+Route::post('/admincreate', [UserController::class, 'admincreate']);
 
-route::get('/admindelete/{id}', [UserController::class, 'admindelete']);
+Route::get('/admindelete/{id}', [UserController::class, 'admindelete']);
 
-route::get('/adminshow', [UserController::class, 'adminshow']);
+Route::get('/updateadmin/{id}', [UserController::class, 'updateadmin']);
 
-route::get('/users', [UserController::class, 'users']);
+Route::post('/adminupdate/{id}', [UserController::class, 'adminupdate']);
 
-route::post('/usercreate', [UserController::class, 'usercreate']);
+Route::get('/adminshow', [UserController::class, 'adminshow'])->name('adminshow');
 
-route::get('/userdelete/{id}', [UserController::class, 'userdelete']);
+//User Accounts
+Route::get('/users', [UserController::class, 'users']);
 
-route::get('/usershow', [UserController::class, 'usershow']);
+Route::post('/usercreate', [UserController::class, 'usercreate']);
+
+Route::get('/userdelete/{id}', [UserController::class, 'userdelete']);
+
+Route::get('/updateuser/{id}', [UserController::class, 'updateuser']);
+
+Route::post('/userupdate/{id}', [UserController::class, 'userupdate']);
+
+Route::get('/usershow', [UserController::class, 'usershow'])->name('usershow');
 
 
 

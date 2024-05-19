@@ -7,10 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+      <!-- End layout styles -->
+      <link rel="shortcut icon" href="assets/images/icon.png" />
+
       <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 
 
-      <title>HomePage</title>
+      <title>Bubble Tea</title>
 
 
 
