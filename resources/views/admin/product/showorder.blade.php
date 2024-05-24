@@ -20,12 +20,12 @@
         <div class="content-wrapper">
 
             <div class="page-header">
-                <h3 class="page-title">Show Customer Orders</h3>
+                <h3 class="page-title">View Orders</h3>
 
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active">Navigation</li>
-                        <li class="breadcrumb-item">Order</li>
+                        <li class="breadcrumb-item">Orders</li>
                     </ol>
                 </nav>
             </div>
@@ -38,18 +38,22 @@
 
                             <div style="padding: 20px 50px 20px 50px">
 
-                                @if(session()->has('message'))
+                                @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
 
+                                @if(session()->has('message'))
                                     <div class="alert alert-success">
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;
-
-                    </span>
+                                            <span aria-hidden="true">&times;</span>
                                         </button>
-
-                                        {{session()->get('message')}}
+                                        {{ session()->get('message') }}
                                     </div>
-
                                 @endif
 
                                 <table class="table table-striped">
@@ -75,7 +79,7 @@
                                         <td style="color: white">{{$orders->quantity}}</td>
                                         <td style="text-align: center">
                                             @if($orders->status === 'not delivered')
-                                                <a class="btn btn-inverse-success" href="{{ url('updatestatus', $orders->id) }}">
+                                                <a class="btn btn-inverse-success" href="{{ url('updateorderstatus', $orders->id) }}">
                                                     Deliver
                                                 </a>
                                             @else

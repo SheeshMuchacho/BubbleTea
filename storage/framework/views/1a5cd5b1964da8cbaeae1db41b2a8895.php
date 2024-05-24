@@ -95,6 +95,17 @@
           </li>
 
 
+          <!-- Customer Feedback -->
+          <li class="nav-item menu-items">
+              <a class="nav-link" href="<?php echo e(url('showfeedback')); ?>">
+            <span class="menu-icon">
+              <i class="mdi mdi-message"></i>
+            </span>
+                  <span class="menu-title">Feedback</span>
+              </a>
+          </li>
+
+
 
 
 

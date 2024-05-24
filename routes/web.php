@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -41,11 +42,26 @@ route::get('/showorder', [AdminController::class, 'showorder']);
 
 route::get('/deleteorder/{id}', [AdminController::class, 'deleteorder']);
 
-route::get('/updatestatus/{id}', [AdminController::class, 'updatestatus']);
+route::get('/updateorderstatus/{id}', [AdminController::class, 'updateorderstatus']);
 
 
 
-//Admin User Management
+//User Dashboard
+route::get('/redirect', [HomeController::class, 'redirect']);
+
+route::get('/search', [HomeController::class, 'search']);
+
+route::get('/ourproduct', [HomeController::class, 'ourproduct']);
+
+route::post('/addcart/{id}', [HomeController::class, 'addcart']);
+
+route::get('/delete/{id}', [HomeController::class, 'deletecart']);
+
+route::post('/order', [HomeController::class, 'confirmorder']);
+
+
+
+//Admin & User Management
 //Admin Accounts
 Route::get('/admins', [UserController::class, 'admins']);
 
@@ -74,17 +90,13 @@ Route::get('/usershow', [UserController::class, 'usershow'])->name('usershow');
 
 
 
-//User Dashboard
-route::get('/redirect', [HomeController::class, 'redirect']);
+//Contact Management
+Route::get('/contact', [ContactController::class, 'contact']);
 
-route::get('/search', [HomeController::class, 'search']);
+Route::post('/contactform', [ContactController::class,'contactform']);
 
-route::get('/ourproduct', [HomeController::class, 'ourproduct']);
+Route::get('/showfeedback', [ContactController::class, 'showfeedback']);
 
-route::post('/addcart/{id}', [HomeController::class, 'addcart']);
+route::get('/updatefeedbackstatus/{id}', [ContactController::class, 'updatefeedbackstatus']);
 
-route::get('/delete/{id}', [HomeController::class, 'deletecart']);
-
-route::post('/order', [HomeController::class, 'confirmorder']);
-
-
+route::get('/deletefeedback/{id}', [ContactController::class, 'deletefeedback']);

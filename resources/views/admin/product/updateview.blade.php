@@ -29,7 +29,7 @@
                         <li class="breadcrumb-item active">Management</li>
                         <li class="breadcrumb-item active">Product</li>
                         <li class="breadcrumb-item active">View Product</li>
-                        <li class="breadcrumb-item">Update Product</li>
+                        <li class="breadcrumb-item">Update Products</li>
                       </ol>
                     </nav>
                   </div>
@@ -40,19 +40,23 @@
                       <div class="card-body">
 
 
-            @if(session()->has('message'))
+                          @if (session('error'))
+                              <div class="alert alert-danger">
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  {{ session('error') }}
+                              </div>
+                          @endif
 
-              <div class="alert alert-success">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;
-
-                  </span>
-                </button>
-
-                {{session()->get('message')}}
-              </div>
-
-              @endif
+                          @if(session()->has('message'))
+                              <div class="alert alert-success">
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  {{ session()->get('message') }}
+                              </div>
+                          @endif
 
             <form action="{{ url('updateproduct', $data->id) }}" method="post" enctype="multipart/form-data">
                 @csrf

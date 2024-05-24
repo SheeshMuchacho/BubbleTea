@@ -130,7 +130,7 @@ class AdminController extends Controller
         return redirect()->back()->with('message', 'Order Deleted Successfully');
     }
 
-    public function updatestatus($id)
+    public function updateorderstatus($id)
     {
         $order=order::find($id);
         $order->status='delivered';

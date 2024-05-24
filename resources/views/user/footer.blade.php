@@ -22,12 +22,5 @@
                 <ion-icon name="logo-facebook"></ion-icon>
             </a></li>
     </ul>
-    <ul class="menu">
-        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Our Products</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">About Us</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Contact Us</a></li>
-
-    </ul>
-    <p>&copy;2024 Sheedh Mashood | All Rights Reserved</p>
+    <p>&copy;2024 Bubble Tea Bubble Me | All Rights Reserved</p>
 </footer>

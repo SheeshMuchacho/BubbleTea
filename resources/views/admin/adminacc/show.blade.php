@@ -20,7 +20,7 @@
         <div class="content-wrapper">
 
             <div class="page-header">
-                <h3 class="page-title">Create Admins</h3>
+                <h3 class="page-title">View Admins</h3>
 
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">

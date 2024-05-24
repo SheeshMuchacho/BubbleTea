@@ -20,8 +20,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
+                    <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('contact') }}">Contact Us</a>
                     </li>
 
                     @if (Route::has('login'))

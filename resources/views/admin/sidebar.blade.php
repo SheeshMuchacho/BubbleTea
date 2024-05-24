@@ -95,6 +95,17 @@
           </li>
 
 
+          <!-- Customer Feedback -->
+          <li class="nav-item menu-items">
+              <a class="nav-link" href="{{url('showfeedback')}}">
+            <span class="menu-icon">
+              <i class="mdi mdi-message"></i>
+            </span>
+                  <span class="menu-title">Feedback</span>
+              </a>
+          </li>
+
+
 {{--          <!-- Template -->--}}
 {{--          <li class="nav-item menu-items">--}}
 {{--              <a class="nav-link" href="admin/pages/forms/basic_elements.html">--}}

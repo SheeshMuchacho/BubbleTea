@@ -8,7 +8,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?> 
+     <?php $__env->slot('header', null, []); ?>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <?php echo e(__('Profile')); ?>
 
@@ -213,4 +213,4 @@ if (isset($__slots)) unset($__slots);
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
 <?php endif; ?>
-<?php /**PATH C:\xampp\htdocs\cb009892\resources\views/profile/show.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\cb009892\resources\views/profile/form.blade.php ENDPATH**/ ?>

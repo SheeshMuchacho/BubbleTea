@@ -27,7 +27,7 @@
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item active">Management</li>
                   <li class="breadcrumb-item active">Product</li>
-                  <li class="breadcrumb-item">Add Product</li>
+                  <li class="breadcrumb-item">Add Products</li>
                 </ol>
               </nav>
             </div>
@@ -37,37 +37,23 @@
                 <div class="card">
                   <div class="card-body">
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                      @if (session('error'))
+                          <div class="alert alert-danger">
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                              {{ session('error') }}
+                          </div>
+                      @endif
 
-            @if (session('error'))
-                <div class="alert alert-danger">
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;
-                    </span>
-                  </button>
-                    {{ session('error') }}
-                </div>
-            @endif
-
-        @if(session()->has('message'))
-
-          <div class="alert alert-success">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;
-              </span>
-            </button>
-            {{session()->get('message')}}
-          </div>
-
-          @endif
+                      @if(session()->has('message'))
+                          <div class="alert alert-success">
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                              {{ session()->get('message') }}
+                          </div>
+                      @endif
 
 
         <form action="{{url('uploadproduct')}}" method="post" enctype="multipart/form-data">

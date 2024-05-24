@@ -20,13 +20,13 @@
           <div class="content-wrapper">
 
             <div class="page-header">
-              <h3 class="page-title">Show Added Products</h3>
+              <h3 class="page-title">View Products</h3>
 
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item active">Navigation</li>
                   <li class="breadcrumb-item active">Product</li>
-                  <li class="breadcrumb-item">View Product</li>
+                  <li class="breadcrumb-item">View Products</li>
                 </ol>
               </nav>
             </div>
@@ -39,18 +39,22 @@
 
             <div style="padding: 20px 50px 20px 50px">
 
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ session('error') }}
+                    </div>
+                @endif
+
                 @if(session()->has('message'))
-
-                <div class="alert alert-success">
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;
-
-                    </span>
-                  </button>
-
-                  {{session()->get('message')}}
-                </div>
-
+                    <div class="alert alert-success">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ session()->get('message') }}
+                    </div>
                 @endif
 
                 <table class="table table-striped">
