@@ -59,6 +59,8 @@ route::get('/delete/{id}', [HomeController::class, 'deletecart']);
 
 route::post('/order', [HomeController::class, 'confirmorder']);
 
+route::get('/about', [HomeController::class, 'about']);
+
 
 
 //Admin & User Management

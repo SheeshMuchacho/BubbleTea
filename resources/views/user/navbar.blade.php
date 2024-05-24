@@ -17,11 +17,11 @@
                     <li class="nav-item {{ Request::is('ourproduct') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('ourproduct') }}">Our Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                    <li class="nav-item {{ Request::is('about') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('about') }}">About Us</a>
                     </li>
                     <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('contact') }}">Contact Us</a>
+                        <a class="nav-link" href="{{ url('contact') }}" style="margin-right: 50px">Contact Us</a>
                     </li>
 
                     @if (Route::has('login'))

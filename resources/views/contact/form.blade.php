@@ -75,10 +75,10 @@
                         <br><br>
                         Located at a prime spot in Colombo, our office is easily accessible and surrounded by a vibrant community. Whether you're visiting us for a business meeting, a casual hangout, or simply to grab your favorite bubble tea, you'll find our location convenient and inviting.</p>
                     <ul class="social-icons">
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/bubblemebubbletea/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/bubblemebubbletea/"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-tiktok"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     </ul>
                 </div>
             </div>
