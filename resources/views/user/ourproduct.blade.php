@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
       @vite('resources/css/app.css')
-      
+
 
     <title>HomePage</title>
 
@@ -80,33 +80,37 @@
 
 
             @foreach($data as $Product)
-
                 <div class="col-md-4">
                     <div class="product-item">
                         <div class="image-container">
-                            <a href="#"><img src="/productimage/{{$Product->image}}"></a>
+                            @if($Product->quantity > 0)
+                                <a href="#"><img src="/productimage/{{$Product->image}}"></a>
+                            @else
+                                <div style="position: relative; display: inline-block;">
+                                    <img src="/productimage/{{$Product->image}}" style="filter: grayscale(100%);">
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: gray; color: white; padding: 10px;">Out of Stock</div>
+                                </div>
+                            @endif
                         </div>
                         <div class="down-content">
                             <a href="#"><h4>{{$Product->title}}</h4></a>
                             <h6>LKR {{$Product->price}}</h6>
                             <p>{{$Product->description}}</p>
-
-
-                            <form action="{{ url('addcart', ['id' => $Product->id]) }}" method="POST">
-                                @csrf
-
-                                <label>
-                                    <input class="form-input w-16 px-3 py-2 border rounded-md mr-2" type="number" value="1" min="1" name="quantity">
-                                </label>
-
-                                <input class="custombtn bg-red-500 hover:bg-red-600 text-whitesmoke hover:text-whitesmoke px-3 py-2 rounded-md cursor-pointer transition duration-200" type="submit" value="Add to Cart">
-                            </form>
-
-
+                            @if($Product->quantity > 0)
+                                <p>Available: {{$Product->quantity}}</p>
+                                <form action="{{ url('addcart', ['id' => $Product->id]) }}" method="POST">
+                                    @csrf
+                                    <label>
+                                        <input class="form-input w-16 px-3 py-2 border rounded-md mr-2" type="number" value="1" min="1" name="quantity">
+                                    </label>
+                                    <input class="custombtn bg-red-500 hover:bg-red-600 text-whitesmoke hover:text-whitesmoke px-3 py-2 rounded-md cursor-pointer transition duration-200" type="submit" value="Add to Cart">
+                                </form>
+                            @else
+                                <p>Out of Stock</p>
+                            @endif
                         </div>
                     </div>
                 </div>
-
             @endforeach
 
                 @if(method_exists($data, 'links'))

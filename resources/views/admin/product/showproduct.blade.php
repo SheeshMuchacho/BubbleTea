@@ -39,21 +39,21 @@
 
             <div style="padding: 20px 50px 20px 50px">
 
-                @if (session('error'))
-                    <div class="alert alert-danger">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        {{ session('error') }}
-                    </div>
-                @endif
-
                 @if(session()->has('message'))
-                    <div class="alert alert-success">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         {{ session()->get('message') }}
+                    </div>
+                @endif
+
+                @if(session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ session()->get('error') }}
                     </div>
                 @endif
 
@@ -68,7 +68,7 @@
                         <th style="text-align: center">Delete</th>
                     </thead>
 
-                    @foreach($data as $product)
+                    @foreach($data->sortBy('quantity') as $product)
 
                     <tbody>
                         <td style="color: white">{{$product->title}}</td>

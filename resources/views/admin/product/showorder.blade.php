@@ -68,7 +68,7 @@
                                     <th style="text-align: center">Delete</th>
                                     </thead>
 
-                                    @foreach($order as $orders)
+                                    @foreach($order->sortByDesc('status') as $orders)
 
                                         <tbody>
                                         <td style="color: white">{{$orders->name}}</td>

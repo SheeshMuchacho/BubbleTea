@@ -16,6 +16,8 @@ use App\Models\Order;
 
 use App\Models\Cart;
 
+use Illuminate\Support\Facades\Log;
+
 
 class HomeController extends Controller
 {
@@ -146,6 +148,21 @@ class HomeController extends Controller
         foreach ($request->productname as $key=>$productname)
         {
             $order = new order;
+
+            // Find the product
+            $product = Product::where('title', $productname)->first();
+            if (!$product) {
+                return redirect()->back()->with('error', 'Product not found.');
+            }
+
+            // Check if the requested quantity is available
+            if ($product->quantity < $request->quantity[$key]) {
+                Log::info('Not enough stock for ' . $productname);
+                return redirect()->back()->with('error', 'Not enough stock for ' . $productname);
+            }
+
+            // Reduce product quantity
+            $product->decrement('quantity', $request->quantity[$key]);
 
             //multiple values
             $order->product_name = $request->productname[$key];

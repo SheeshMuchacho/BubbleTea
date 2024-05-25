@@ -62,7 +62,7 @@
                                                     </li>
                                                 @endforeach
 
-                                                <button class="bg-red-500 text-white hover:bg-red-600 w-full py-2 mt-4">
+                                                <button class="bg-red-500 text-white hover:bg-red-600 w-full py-3 ">
                                                     Checkout
                                                 </button>
                                             </form>
@@ -86,11 +86,20 @@
     </nav>
 
     @if(session()->has('message'))
-        <div class="alert alert-success">
-            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             {{ session()->get('message') }}
+        </div>
+    @endif
+
+    @if(session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ session()->get('error') }}
         </div>
     @endif
 </header>
