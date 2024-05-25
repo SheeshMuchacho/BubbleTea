@@ -66,7 +66,7 @@
                                     <th style="text-align: center">Delete</th>
                                     </thead>
 
-                                    @foreach($data as $contacts)
+                                    @foreach($data->sortBy('status') as $contacts)
 
                                         <tbody>
                                         <td style="color: white">{{$contacts->name}}</td>
