@@ -2,11 +2,11 @@
 
 namespace Livewire\Features\SupportTesting;
 
-use Illuminate\Support\Traits\Macroable;
 use Livewire\Features\SupportFileDownloads\TestsFileDownloads;
 use Livewire\Features\SupportValidation\TestsValidation;
 use Livewire\Features\SupportRedirects\TestsRedirects;
 use Livewire\Features\SupportEvents\TestsEvents;
+use Illuminate\Support\Traits\Macroable;
 
 /** @mixin \Illuminate\Testing\TestResponse */
 
@@ -165,6 +165,11 @@ class Testable
         return $this->update();
     }
 
+    function refresh()
+    {
+        return $this->update();
+    }
+
     function update($calls = [], $updates = [])
     {
         $newState = SubsequentRender::make(
@@ -172,6 +177,7 @@ class Testable
             $this->lastState,
             $calls,
             $updates,
+            app('request')->cookies->all()
         );
 
         $this->lastState = $newState;
@@ -182,7 +188,7 @@ class Testable
     /** @todo Move me outta here and into the file upload folder somehow... */
     function upload($name, $files, $isMultiple = false)
     {
-        // This methhod simulates the calls Livewire's JavaScript
+        // This method simulates the calls Livewire's JavaScript
         // normally makes for file uploads.
         $this->call(
             '_startUpload',
@@ -209,10 +215,11 @@ class Testable
             return $this;
         }
 
-        // We are going to encode the file size in the filename so that when we create
-        // a new TemporaryUploadedFile instance we can fake a specific file size.
+        // We are going to encode the original file size and hashName in the filename
+        // so when we create a new TemporaryUploadedFile instance we can fake the
+        // same file size and hashName set for the original file upload.
         $newFileHashes = collect($files)->zip($fileHashes)->mapSpread(function ($file, $fileHash) {
-            return (string) str($fileHash)->replaceFirst('.', "-size={$file->getSize()}.");
+            return (string) str($fileHash)->replaceFirst('.', "-hash={$file->hashName()}-size={$file->getSize()}.");
         })->toArray();
 
         collect($fileHashes)->zip($newFileHashes)->mapSpread(function ($fileHash, $newFileHash) use ($storage) {
