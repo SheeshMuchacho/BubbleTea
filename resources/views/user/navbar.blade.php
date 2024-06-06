@@ -34,7 +34,6 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="cartDropdown" style="width: 250px;">
                                         @if(isset($carts) && !$carts->isEmpty())
-
                                             <form action="{{ route('stripe') }}" method="POST">
                                                 @csrf
                                                 @foreach($carts as $cart)
@@ -59,11 +58,12 @@
                                                         </div>
                                                     </li>
                                                 @endforeach
-
                                                 <button class="bg-red-500 text-white hover:bg-red-600 w-full py-3">
                                                     Proceed to Checkout
                                                 </button>
                                             </form>
+                                        @else
+                                            <p class="text-center text-gray-500 m-2">There is nothing in the cart. <i class="fa fa-regular fa-cart-arrow-down"></i></p>
                                         @endif
                                     </ul>
                                 </div>
