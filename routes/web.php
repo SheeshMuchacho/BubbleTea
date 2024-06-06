@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -23,47 +24,51 @@ Route::middleware([
 
 
 
-//Admin Dashboard
-route::get('/product', [AdminController::class, 'product']);
-
-route::post('/uploadproduct', [AdminController::class,'uploadproduct']);
-
-route::get('/showproduct', [AdminController::class, 'showproduct']);
-
-route::get('/deleteproduct/{id}', [AdminController::class, 'deleteproduct']);
-
-route::get('/updateview/{id}', [AdminController::class, 'updateview']);
-
-route::post('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
-
-route::get('/admindash', [AdminController::class, 'admindash']);
-
-route::get('/showorder', [AdminController::class, 'showorder']);
-
-route::get('/deleteorder/{id}', [AdminController::class, 'deleteorder']);
-
-route::get('/updateorderstatus/{id}', [AdminController::class, 'updateorderstatus']);
-
-
-
 //User Dashboard
-route::get('/redirect', [HomeController::class, 'redirect']);
+Route::get('/', [HomeController::class, 'redirect'])->name('home');
 
-route::get('/search', [HomeController::class, 'search']);
+Route::get('/redirect', [HomeController::class, 'redirect']);
 
-route::get('/ourproduct', [HomeController::class, 'ourproduct']);
+Route::get('/search', [HomeController::class, 'search']);
 
-route::post('/addcart/{id}', [HomeController::class, 'addcart']);
+Route::get('/ourproduct', [HomeController::class, 'ourproduct']);
 
-route::get('/delete/{id}', [HomeController::class, 'deletecart']);
+Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
 
-route::post('/order', [HomeController::class, 'confirmorder']);
+Route::get('/delete/{id}', [HomeController::class, 'deletecart']);
 
-route::get('/about', [HomeController::class, 'about']);
+Route::post('/order', [HomeController::class, 'confirmorder'])->name('order');
+
+Route::get('/about', [HomeController::class, 'about']);
 
 
 
-//Admin & User Management
+//Admin Dashboard
+Route::get('/admindash', [AdminController::class, 'admindash']);
+
+//Product Management
+Route::get('/product', [AdminController::class, 'product']);
+
+Route::post('/uploadproduct', [AdminController::class,'uploadproduct']);
+
+Route::get('/showproduct', [AdminController::class, 'showproduct']);
+
+Route::get('/deleteproduct/{id}', [AdminController::class, 'deleteproduct']);
+
+Route::get('/updateview/{id}', [AdminController::class, 'updateview']);
+
+Route::post('/updateproduct/{id}', [AdminController::class, 'updateproduct']);
+
+//Order Management
+Route::get('/showorder', [AdminController::class, 'showorder']);
+
+Route::get('/deleteorder/{id}', [AdminController::class, 'deleteorder']);
+
+Route::get('/updateorderstatus/{id}', [AdminController::class, 'updateorderstatus']);
+
+
+
+//User Management
 //Admin Accounts
 Route::get('/admins', [UserController::class, 'admins']);
 
@@ -92,13 +97,24 @@ Route::get('/usershow', [UserController::class, 'usershow'])->name('usershow');
 
 
 
-//Contact Management
+//Feedback Management
 Route::get('/contact', [ContactController::class, 'contact']);
 
 Route::post('/contactform', [ContactController::class,'contactform']);
 
 Route::get('/showfeedback', [ContactController::class, 'showfeedback']);
 
-route::get('/updatefeedbackstatus/{id}', [ContactController::class, 'updatefeedbackstatus']);
+Route::get('/updatefeedbackstatus/{id}', [ContactController::class, 'updatefeedbackstatus']);
 
-route::get('/deletefeedback/{id}', [ContactController::class, 'deletefeedback']);
+Route::get('/deletefeedback/{id}', [ContactController::class, 'deletefeedback']);
+
+
+
+//Stripe API
+Route::post('/stripe', [StripeController::class, 'stripe'])->name('stripe');
+
+Route::get('/stripe/success', [StripeController::class, 'stripesuccess'])->name('stripesuccess');
+
+Route::get('/stripe/cancel', [StripeController::class, 'stripecancel'])->name('stripecancel');
+
+

@@ -17,13 +17,18 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
+    public function admindash() {
+        return view('admin.admindash');
+    }
+
     public function product()
     {
         if (Auth::id())
         {
             if (Auth::user()->usertype=='1')
             {
-                return view('admin.product.product');
+                return view('product.product');
             }
             else
             {
@@ -72,7 +77,7 @@ class AdminController extends Controller
     public function showproduct()
     {
         $data=product::all();
-        return view('admin.product.showproduct', compact('data'));
+        return view('product.showproduct', compact('data'));
     }
 
     public function deleteproduct($id)
@@ -85,42 +90,37 @@ class AdminController extends Controller
     public function updateview($id)
     {
         $data=product::find($id);
-        return view('admin.product.updateview', compact('data'));
+        return view('product.updateview', compact('data'));
     }
 
     public function updateproduct(Request $request, $id)
     {
-        $data=product::find($id);
+        $data = product::find($id);
 
-        $image=$request->file;
+        $image = $request->file;
 
-        if($image)
-        {
-        $imagename=time().'.'.$image->getClientOriginalExtension();
-        $request->file->move('productimage', $imagename);
-        $data->image=$imagename;
+        if ($image) {
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $request->file->move('productimage', $imagename);
+            $data->image = $imagename;
         }
 
-        $data->title=$request->title;
+        $data->title = $request->title;
 
-        $data->price=$request->price;
+        $data->price = $request->price;
 
-        $data->description=$request->des;
+        $data->description = $request->des;
 
-        $data->quantity=$request->quantity;
+        $data->quantity = $request->quantity;
 
         $data->save();
         return redirect()->back()->with('message', 'Product Updated Successfully');
     }
 
-    public function admindash() {
-        return view('admin.admindash');
-    }
-
     public function showorder()
     {
         $order=order::all();
-        return view('admin.product.showorder', compact('order'));
+        return view('product.showorder', compact('order'));
     }
 
     public function deleteorder($id)

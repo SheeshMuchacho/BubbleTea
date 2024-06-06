@@ -21,7 +21,7 @@
                         <a class="nav-link" href="{{ url('about') }}">About Us</a>
                     </li>
                     <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('contact') }}" style="margin-right: 50px">Contact Us</a>
+                        <a class="nav-link" href="{{ url('contact') }}">Contact Us</a>
                     </li>
 
                     @if (Route::has('login'))
@@ -30,29 +30,27 @@
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" id="cartDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-regular fa-cart-shopping" style="color: #fb5b5b;"></i> Cart ({{ $count }})
+                                        <i class="fa fa-regular fa-cart-shopping" style="color: #fb5b5b;"></i> Cart @if(isset($count)) ({{ $count }}) @endif
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="cartDropdown" style="width: 250px;">
-                                        @if($carts->isEmpty())
-                                            <p class="text-center text-gray-500 m-2">There is nothing in the cart. <i class="fa fa-regular fa-cart-arrow-down"></i></p>
-                                        @else
-                                            <form action="{{ url('order') }}" method="POST">
-                                                @csrf
+                                        @if(isset($carts) && !$carts->isEmpty())
 
+                                            <form action="{{ route('stripe') }}" method="POST">
+                                                @csrf
                                                 @foreach($carts as $cart)
                                                     <li class="p-3">
                                                         <div class="flex flex-col items-center">
                                                             <div class="flex justify-between w-full text-base font-medium text-gray-900">
                                                                 <h3 class="flex-1">
-                                                                    <input type="text" name="productname[]" value="{{ $cart->product_title }}" hidden="">
+                                                                    <input type="hidden" name="productname[]" value="{{ $cart->product_title }}">
                                                                     <p class="truncate">{{ $cart->product_title }}</p>
                                                                 </h3>
-                                                                <input type="text" name="quantity[]" value="{{ $cart->quantity }}" hidden="">
+                                                                <input type="hidden" name="quantity[]" value="{{ $cart->quantity }}">
                                                                 <p class="ml-4">{{ $cart->quantity }}</p>
                                                             </div>
                                                             <div class="flex justify-between w-full text-sm mt-2">
-                                                                <input type="text" name="price[]" value="{{ $cart->price * $cart->quantity }}" hidden="">
-                                                                <p class="text-gray-500">LKR {{ $cart->price * $cart->quantity }}</p>
+                                                                <input type="hidden" name="price[]" value="{{ $cart->price }}">
+                                                                <p class="text-gray-500">LKR {{ $cart->price }}</p>
                                                                 <a class="font-medium text-red-500 cursor-pointer hover:shadow-md transition-shadow duration-300" href="{{ url('delete', $cart->id) }}">
                                                                     Remove
                                                                 </a>
@@ -62,8 +60,8 @@
                                                     </li>
                                                 @endforeach
 
-                                                <button class="bg-red-500 text-white hover:bg-red-600 w-full py-3 ">
-                                                    Checkout
+                                                <button class="bg-red-500 text-white hover:bg-red-600 w-full py-3">
+                                                    Proceed to Checkout
                                                 </button>
                                             </form>
                                         @endif

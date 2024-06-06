@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +19,6 @@ use App\Models\Order;
 use App\Models\Cart;
 
 use Illuminate\Support\Facades\Log;
-
 
 class HomeController extends Controller
 {
@@ -139,50 +140,55 @@ class HomeController extends Controller
 
     public function confirmorder(Request $request)
     {
-        $user=auth()->user();
+        $user = auth()->user();
+        $name = $user->name;
+        $phone = $user->phone;
+        $address = $user->address;
 
-        $name=$user->name;
-        $phone=$user->phone;
-        $address=$user->address;
+        $productNames = $request->productname;
+        $quantities = $request->quantity;
+        $prices = $request->price;
 
-        foreach ($request->productname as $key=>$productname)
-        {
-            $order = new order;
+        Log::info('Confirming order for user: ' . $user->name);
 
-            // Find the product
-            $product = Product::where('title', $productname)->first();
+        foreach ($productNames as $key => $productName) {
+            $order = new Order;
+
+            $product = Product::where('title', $productName)->first();
             if (!$product) {
-                return redirect()->back()->with('error', 'Product not found.');
+                Log::error('Product not found: ' . $productName);
+                return redirect()->back()->with('error', 'Product not found: ' . $productName);
             }
 
-            // Check if the requested quantity is available
-            if ($product->quantity < $request->quantity[$key]) {
-                Log::info('Not enough stock for ' . $productname);
-                return redirect()->back()->with('error', 'Not enough stock for ' . $productname);
+            if ($product->quantity < $quantities[$key]) {
+                Log::error('Not enough stock for: ' . $productName);
+                return redirect()->back()->with('error', 'Not enough stock for: ' . $productName);
             }
 
             // Reduce product quantity
-            $product->decrement('quantity', $request->quantity[$key]);
+            $product->decrement('quantity', $quantities[$key]);
 
-            //multiple values
-            $order->product_name = $request->productname[$key];
-            $order->price = $request->price[$key];
-            $order->quantity = $request->quantity[$key];
+            // Save each product in the order
+            $order->product_name = $productNames[$key];
+            $order->price = $prices[$key];
+            $order->quantity = $quantities[$key];
 
-            //single values
+            // Single values
             $order->name = $name;
             $order->phone = $phone;
             $order->address = $address;
             $order->status = 'not delivered';
 
             $order->save();
-
         }
 
         DB::table('carts')->where('phone', $phone)->delete();
 
+        Log::info('Order confirmed for user: ' . $user->name);
+
         return redirect()->back()->with('message', 'Order Complete');
     }
+
 
     public function about()
     {

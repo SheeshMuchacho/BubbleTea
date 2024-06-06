@@ -14,7 +14,7 @@ class UserController extends Controller
     //Admins
     public function admins()
     {
-        return view('admin.adminacc.create');
+        return view('accounts.adminacc.create');
     }
 
     public function admincreate(Request $request)
@@ -51,7 +51,7 @@ class UserController extends Controller
     public function updateadmin($id)
     {
         $admin=User::find($id);
-        return view('admin.adminacc.update', compact('admin'));
+        return view('accounts.adminacc.update', compact('admin'));
     }
 
     public function adminupdate(Request $request, $id)
@@ -84,7 +84,7 @@ class UserController extends Controller
     public function adminshow()
     {
         $admins = User::where('usertype', 1)->get();
-        return view('admin.adminacc.show', compact('admins'));
+        return view('accounts.adminacc.show', compact('admins'));
     }
 
 
@@ -92,7 +92,7 @@ class UserController extends Controller
     //Users
     public function users()
     {
-        return view('admin.useracc.create');
+        return view('accounts.useracc.create');
     }
 
     public function usercreate(Request $request)
@@ -129,7 +129,7 @@ class UserController extends Controller
     public function updateuser($id)
     {
         $user=User::find($id);
-        return view('admin.useracc.update', compact('user'));
+        return view('accounts.useracc.update', compact('user'));
     }
 
     public function userupdate(Request $request, $id)
@@ -162,6 +162,6 @@ class UserController extends Controller
     public function usershow()
     {
         $users = User::where('usertype', 0)->get();
-        return view('admin.useracc.show', compact('users'));
+        return view('accounts.useracc.show', compact('users'));
     }
 }
